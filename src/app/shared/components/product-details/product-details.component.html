@@ -1,0 +1,80 @@
+<div class="container mx-auto px-4 py-8 max-w-6xl">
+    <div class="flex flex-col lg:flex-row gap-10">
+      
+      <!-- Gallery -->
+      <div class="flex-1">
+        <div class="w-full aspect-[4/5] bg-white flex items-center justify-center border rounded-lg">
+          <img [src]="details.imgCover" alt="Main Product" class="object-contain h-full" />
+        </div>
+        <div class="flex gap-4 mt-4 justify-center">
+          <img src="assets/img/products/thumb1.png" class="w-16 h-16 object-cover border-2 border-pink-500 rounded-md" />
+          <img src="assets/img/products/thumb2.png" class="w-16 h-16 object-cover rounded-md" />
+          <img src="assets/img/products/thumb3.png" class="w-16 h-16 object-cover rounded-md" />
+          <img src="assets/img/products/thumb4.png" class="w-16 h-16 object-cover rounded-md" />
+        </div>
+      </div>
+  
+      <!-- Product Info -->
+      <div class="flex-1 text-[#150D57]">
+        <h2 class="text-2xl lg:text-3xl font-bold mb-2">{{details.title}}</h2>
+        <div class="text-xl mb-4">
+          <span class="line-through text-gray-400 mr-2">{{details.price | currency :'EUR' }}</span>
+          <span class="text-pink-600 font-bold">{{details.priceAfterDiscount | currency :'EUR'}}</span>
+          <span class="ml-2 text-sm text-red-500 font-semibold">{{details.discount | percent }}</span>
+        </div>
+        <p class="text-gray-600 mb-6">{{details.description}}</p>
+  
+        <!-- Quantity, Size, Color -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+          <!-- Quantity -->
+          <div class="flex items-center gap-2">
+            <span class="font-semibold">Quantity:</span>
+            <button class="w-8 h-8 border rounded-full flex items-center justify-center text-xl">-</button>
+            <span class="px-2">{{details.quantity}}</span>
+            <button class="w-8 h-8 border rounded-full flex items-center justify-center text-xl">+</button>
+          </div>
+  
+          <!-- Size -->
+          <div class="flex items-center gap-2">
+            <span class="font-semibold">Size:</span>
+            <select class="border rounded-md px-3 py-1 text-sm">
+              <option>Choose Size</option>
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+            </select>
+          </div>
+  
+          <!-- Color -->
+          <div class="flex items-center gap-2">
+            <span class="font-semibold">Color:</span>
+            <div class="flex gap-1">
+              <span class="w-5 h-5 bg-purple-700 rounded-full border"></span>
+              <span class="w-5 h-5 bg-blue-500 rounded-full border"></span>
+              <span class="w-5 h-5 bg-green-500 rounded-full border"></span>
+              <span class="w-5 h-5 bg-yellow-400 rounded-full border"></span>
+              <span class="w-5 h-5 bg-orange-500 rounded-full border"></span>
+              <span class="w-5 h-5 bg-red-500 rounded-full border"></span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Meta -->
+        <ul class="text-sm text-gray-700 space-y-1 mb-6">
+          <li><strong>Stock:</strong> Available</li>
+          <li><strong>SKU:</strong> 266TYFD</li>
+          <li><strong>Category:</strong> Jewelry & Accessories</li>
+          <li><strong>Brand:</strong> Novak</li>
+        </ul>
+  
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button (click)="addProduct(details._id,details.quantity)" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-md shadow-md w-full sm:w-auto">
+            💖 Add To Cart
+          </button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  

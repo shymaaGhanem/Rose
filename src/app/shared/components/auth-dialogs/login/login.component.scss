@@ -1,0 +1,10 @@
+@use '../../../../../assets/sass/variables' as *;
+
+::ng-deep .p-inputtext{
+    border-radius: 20px !important;
+    &:enabled:focus{
+            border-color: $primary-color !important;
+            box-shadow: $primary-color !important;
+            outline-color: $primary-color !important;
+    }
+}

@@ -1,0 +1,55 @@
+<!-- Navbar -->
+<nav class="flex justify-between items-center px-4 md:px-10 py-3 bg-white shadow-md">
+  <!-- Logo -->
+  <div class="flex items-center space-x-2">
+    <img src="assets/img/logo/rose-logo.svg" class="h-12 w-12 object-cover rounded-full" alt="Logo" />
+  </div>
+
+  <!-- Links (Desktop) -->
+  <ul class="hidden md:flex items-center gap-8 text-sm font-semibold text-[#150D57]">
+    <li><a routerLink="/home" class="text-pink-500">Home</a></li>
+    <li><a routerLink="/categories">All Category</a></li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
+  </ul>
+
+  <!-- Icons (Desktop) -->
+   <div class="flex">
+    <div class="flex items-center gap-4 text-pink-500 text-lg">
+      @if(isLogin){
+        <button routerLink="/cart" class="relative">
+          <i class="fas fa-shopping-bag"></i> 
+          <span *ngIf="cartNumber$ | async as cartNumber" class="absolute -top-2 -right-2 bg-pink-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">{{cartNumber.numOfCartItems}}</span>
+        </button>
+        <a class="cursor-pointer" (click)="logout()">Logout</a>
+      }@else{
+        <app-login></app-login>
+      }
+  
+    </div>
+
+      <!-- Burger (Mobile) -->
+  <button class="md:hidden text-2xl ms-3 text-pink-500" onclick="document.getElementById('mobileMenu').classList.remove('-translate-x-full')">
+    <i class="fas fa-bars"></i>
+  </button>
+   </div>
+
+
+
+</nav>
+
+<!-- Side Menu (Mobile) -->
+<div id="mobileMenu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+  <div class="flex items-center justify-between px-4 py-3 border-b">
+    <img src="assets/img/logo/rose-logo.svg" class="h-10 w-10 object-cover rounded-full" alt="Logo" />
+    <button onclick="document.getElementById('mobileMenu').classList.add('-translate-x-full')" class="text-[#150D57] text-xl">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <ul class="flex flex-col gap-6 p-6 text-lg font-semibold text-[#150D57]">
+    <li><a routerLink="/home" class="text-pink-500">Home</a></li>
+    <li><a routerLink="/categories">All Category</a></li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
+  </ul>
+</div>

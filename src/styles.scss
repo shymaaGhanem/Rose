@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+@use '../src/assets/sass/_variables.scss' as *;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+body{
+    font-family: $font-famity !important;
+}
+
+// buttons
+p-button{
+    .p-button:not(.p-dialog-close-button) {
+        background-color: $primary-color !important;
+        color: #fff;
+        border: 1px solid $primary-color !important;
+    }
+
+    .p-button:hover:not(.p-dialog-close-button) {
+        background-color: $hover-color !important;
+        border-color: $hover-color !important;
+        color: #fff;
+    }
+
+    .p-button:active:not(.p-dialog-close-button) {
+        background-color: $hover-color;
+        border-color: $hover-color;
+    }
+}
+
+.authButton p-button{
+    width: 100%;
+    .p-ripple {
+        border-radius:30px ;
+        width:100% !important;
+    }
+}
+
+
+// dialog
+
+.p-overlay-mask,div.p-dialog-mask{
+    z-index: 1000 !important;
+    background-color: rgba(0,0,0,0.8) !important;
+}
+
+.p-dialog-title{
+font-size: 30px !important;
+font-weight:400 !important;
+font-family: "Inter", sans-serif !important;
+text-transform: capitalize;
+padding-bottom:10px;
+}
+
+.p-dialog{
+padding:10px;
+border-radius: 20px;
+}

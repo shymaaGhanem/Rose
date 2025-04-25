@@ -1,0 +1,37 @@
+<p-button (click)="showDialog()" label="Login"/>
+<p-dialog header="Login to your account" [draggable]="false" [modal]="true" [(visible)]="loginVisible" [style]="{ width: '608px' }">
+      
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="flex flex-col gap-2 mb-4">
+            <label for="email">Email</label>
+            <input pInputText formControlName="email" id="email" placeholder="Email" />
+            <small *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" class="text-red-500">Email is required</small>
+            <small *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" class="text-red-500">Enter a valid email</small>
+          </div>
+      
+          <div class="flex flex-col gap-2 mb-6">
+            <label for="password">Password</label>
+            <input pInputText type="password" formControlName="password" id="password" placeholder="Password" />
+            <small *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="text-red-500">Password is required</small>
+          </div>
+      
+          <div class="flex justify-between items-center mb-4">
+            <a class="cursor-pointer text-[F82BA9]" (click)="showForgotPasswordDialog()">Forgot Password?</a>
+            <a class="cursor-pointer text-[F82BA9]" (click)="showCreateAccountDialog()">Create account</a>
+          </div>
+
+          <p class="text-red-800 text-center">{{ errMsg }}</p>
+      
+          <div class="authButton">
+            <p-button
+            label="Login"
+            icon="pi pi-sign-in"
+            [loading]="isLoading"
+            [disabled]="loginForm.invalid || isLoading"
+            class="w-full"
+            type="submit"
+          ></p-button>
+          </div>
+        </form>
+      
+</p-dialog>

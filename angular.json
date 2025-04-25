@@ -29,9 +29,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets"
             ],
             "styles": [
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.scss"
             ],
             "scripts": [],
@@ -102,6 +104,141 @@
           }
         }
       }
+    },
+    "auth-api": {
+      "projectType": "library",
+      "root": "projects/auth-api",
+      "sourceRoot": "projects/auth-api/src",
+      "prefix": "auth",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/auth-api/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/auth-api/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/auth-api/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/auth-api/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "product-api": {
+      "projectType": "library",
+      "root": "projects/product-api",
+      "sourceRoot": "projects/product-api/src",
+      "prefix": "product",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/product-api/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/product-api/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/product-api/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/product-api/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "cart-api": {
+      "projectType": "library",
+      "root": "projects/cart-api",
+      "sourceRoot": "projects/cart-api/src",
+      "prefix": "cart",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cart-api/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cart-api/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cart-api/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/cart-api/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "category-api": {
+      "projectType": "library",
+      "root": "projects/category-api",
+      "sourceRoot": "projects/category-api/src",
+      "prefix": "category",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/category-api/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/category-api/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/category-api/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/category-api/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": "a79a977e-1507-437d-9ef8-5afeddee4f97"
   }
 }

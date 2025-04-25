@@ -1,0 +1,9 @@
+<p-carousel [value]="items" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000">
+    <ng-template pTemplate="item" let-item>
+      <div class="slider-item">
+        <img [src]="item.image" alt="{{item.title}}" style="width: 100%; border-radius: 1rem;" />
+        <h3>{{ item.title }}</h3>
+      </div>
+    </ng-template>
+  </p-carousel>
+  

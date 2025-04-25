@@ -3,6 +3,20 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "auth-api": [
+        "./dist/auth-api"
+      ],
+      "cart-api": [
+        "./dist/cart-api"
+      ],
+      "category-api": [
+        "./dist/category-api"
+      ],
+      "product-api": [
+        "./dist/product-api"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -15,7 +29,7 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
-    "target": "ES2022",
+    "target": "ES2015",
     "module": "ES2022"
   },
   "angularCompilerOptions": {

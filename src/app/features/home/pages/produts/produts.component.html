@@ -1,0 +1,12 @@
+
+<h2>Popular Items</h2>
+<div class="grid gap-6
+            grid-cols-1
+            sm:grid-cols-2
+            md:grid-cols-3
+            xl:grid-cols-4
+            2xl:grid-cols-4">
+@for(product of dataList;track $index){
+    <app-card [productList]="product"></app-card>
+}
+</div>

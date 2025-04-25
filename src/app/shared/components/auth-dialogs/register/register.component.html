@@ -1,0 +1,51 @@
+<div class="max-w-xxl mx-auto p-4">
+  <form [formGroup]="registerForm" (ngSubmit)="submitForm()" novalidate>
+
+    <div class="mb-4">
+      <input pInputText id="name" formControlName="firstName" class="input-style" placeholder="First Name" />
+      <small *ngIf="name?.invalid && name?.touched" class="text-[#F82BA9]">Name must be 3-10 characters</small>
+    </div>
+
+    <div class="mb-4">
+      <input pInputText id="name" formControlName="lastName" class="input-style" placeholder="Last Name" />
+      <small *ngIf="name?.invalid && name?.touched" class="text-[#F82BA9]">Name must be 3-10 characters</small>
+    </div>
+
+    <div class="mb-4">
+      <input pInputText id="email" formControlName="email" class="input-style" placeholder="Email" />
+      <small *ngIf="email?.invalid && email?.touched" class="text-[#F82BA9]">Please enter a valid email</small>
+    </div>
+
+    <div class="mb-4">
+      <input pInputText id="phone" formControlName="phone" class="input-style" placeholder="phone number" />
+      <small *ngIf="phone?.invalid && phone?.touched" class="text-[#F82BA9]">Enter a valid Egyptian phone number</small>
+    </div>
+
+    <div class="mb-4">
+      <p-dropdown 
+        [options]="genders" 
+        formControlName="gender"
+        placeholder="Select Gender" 
+        class="w-full input-style"
+        [showClear]="true">
+      </p-dropdown>
+      <small *ngIf="gender?.invalid && gender?.touched" class="text-[#F82BA9]">Gender is required</small>
+    </div>
+
+    <div class="mb-4">
+      <p-password formControlName="password" inputStyleClass="input-style" toggleMask="true" placeholder="Password"></p-password>
+      <small *ngIf="password?.invalid && password?.touched" class="text-[#F82BA9]">Password must start with capital & be 8 chars</small>
+    </div>
+
+    <div class="mb-4">
+      <p-password formControlName="rePassword" inputStyleClass="input-style" toggleMask="true" placeholder="Confirm your password"></p-password>
+      <small *ngIf="registerForm.errors?.['mismatch'] && registerForm.touched" class="text-[#F82BA9]">Passwords do not match</small>
+    </div>
+
+    <p-message *ngIf="errMsg" severity="error" [text]="errMsg" class="mb-3"></p-message>
+
+    <div class="authButton">
+      <p-button type="submit" label="Create Account"  [loading]="isLoading"></p-button>
+    </div>
+  </form>
+</div>

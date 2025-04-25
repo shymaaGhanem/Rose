@@ -1,0 +1,55 @@
+<div class="max-w-2xl mx-auto p-6  my-5 rounded-xl shadow-lg text-white space-y-4">
+  <h2 class="text-2xl font-bold text-pink-500 mb-6">Shipping Address</h2>
+
+  <form [formGroup]="shippingForm" class="space-y-4">
+    <div>
+      <label class="block mb-1 text-sm">Street</label>
+      <input type="text" formControlName="street" placeholder="Street Details"
+             class="w-full p-2 rounded border focus:outline-none focus:ring-2 focus:ring-pink-500"/>
+    </div>
+
+    <div>
+      <label class="block mb-1 text-sm">Phone</label>
+      <input type="text" formControlName="phone" placeholder="Phone Number"
+             class="w-full p-2 rounded border focus:outline-none focus:ring-2 focus:ring-pink-500"/>
+    </div>
+
+    <div>
+      <label class="block mb-1 text-sm">City</label>
+      <input type="text" formControlName="city" placeholder="City"
+             class="w-full p-2 rounded border focus:outline-none focus:ring-2 focus:ring-pink-500"/>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label class="block mb-1 text-sm">Latitude</label>
+        <input type="text" formControlName="lat" placeholder="Latitude"
+               class="w-full p-2 rounded border focus:outline-none focus:ring-2 focus:ring-pink-500"/>
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Longitude</label>
+        <input type="text" formControlName="long" placeholder="Longitude"
+               class="w-full p-2 rounded border focus:outline-none focus:ring-2 focus:ring-pink-500"/>
+      </div>
+    </div>
+
+    <div class="flex justify-between mt-6">
+      <button type="button"
+              (click)="submitOrder('cash')"
+              [disabled]="isSubmitting"
+              class="border-pink-500 border text-center hover:bg-pink-600 text-pink-500 hover:text-white font-bold py-2 px-6 rounded ">
+              <img src="assets/img/orders/cach.svg" alt="cash"/>
+        Cash on Delivery
+      </button>
+
+      <button
+              type="button"
+              (click)="submitOrder('checkout')"
+              [disabled]="isSubmitting"
+              class="text-center border border-pink-500  hover:bg-pink-600 text-pink-500 hover:text-white font-bold py-2 px-6 rounded ">
+              <img src="assets/img/orders/Visa.svg" alt="cash"/>
+              Checkout
+      </button>
+    </div>
+  </form>
+</div>

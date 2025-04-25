@@ -1,0 +1,40 @@
+::ng-deep .input-style {
+  @apply w-full px-4 py-2 shadow rounded-sm outline-none border-none;
+  border-radius: 20px !important;
+  color: #333;
+
+  &::placeholder {
+    color: #797979 !important;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px #F82BA9 !important;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+
+  .p-dropdown-label {
+    color: #333;
+  }
+
+  .p-placeholder {
+    color: #797979 !important;
+  }
+
+  &:focus,
+  &.p-focus {
+    box-shadow: 0 0 0 2px #F82BA9 !important;
+    outline: none;
+  }
+
+}
+
+
+::ng-deep {
+  .p-password {
+    width: 100% !important;
+  }
+}
