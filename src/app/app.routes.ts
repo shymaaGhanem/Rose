@@ -28,7 +28,7 @@ export const routes: Routes = [
       },
       {
         path: 'productDetails/:id',
-        loadComponent: () => import('./shared/components/product-details/product-details.component').then(c => c.ProductDetailsComponent)
+        loadComponent: () => import('./features/home/pages/product-details/product-details.component').then(c => c.ProductDetailsComponent)
       },
       {
         path: 'categoryDetails/:id',

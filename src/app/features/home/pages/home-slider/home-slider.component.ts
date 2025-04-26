@@ -10,8 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeSliderComponent {
   items = [
-    { title: 'Slide 1', image: 'https://picsum.photos/id/1011/900/400' },
-    { title: 'Slide 2', image: 'https://picsum.photos/id/1012/900/400' },
-    { title: 'Slide 3', image: 'https://picsum.photos/id/1013/900/400' }
+    { title: 'Slide 1', image: 'src/assets/img/gallery/container.png' },
+    { title: 'Slide 2', image: 'src/assets/img/gallery/container.png' },
+    { title: 'Slide 3', image: 'src/assets/img/gallery/container.png' }
   ];
 }

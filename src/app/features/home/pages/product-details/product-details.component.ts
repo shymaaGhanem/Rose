@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { ProductsService } from '../../../features/home/services/products/products.service';
+import { ProductsService } from '../../../../features/home/services/products/products.service';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from '../../../core/interfaces/products';
-import { CartService } from '../../../features/cart/services/cart/cart.service';
+import { Product } from '../../../../core/interfaces/products';
+import { CartService } from '../../../../features/cart/services/cart/cart.service';
 import { CurrencyPipe, PercentPipe } from '@angular/common';
 import { Store } from '@ngrx/store';
-import * as CartActions from '../../../store/cart/cart.actions';
+import * as CartActions from '../../../../store/cart/cart.actions';
 
 @Component({
   selector: 'app-product-details',

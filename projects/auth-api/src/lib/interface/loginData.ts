@@ -25,3 +25,9 @@ export interface LoginData {
     token: string,
     userEmail:string
   }
+
+
+
+
+
+  
