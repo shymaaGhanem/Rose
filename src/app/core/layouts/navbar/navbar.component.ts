@@ -1,5 +1,5 @@
 import { Component, effect } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LoginComponent } from "../../../shared/components/auth-dialogs/login/login.component";
 import { LogedUserService } from './../../services/logedUser/loged-user.service';
 import { Store } from '@ngrx/store';
@@ -12,7 +12,7 @@ import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, LoginComponent , NgIf ,AsyncPipe],
+  imports: [RouterLink, LoginComponent , NgIf ,AsyncPipe , RouterLinkActive],
 templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })

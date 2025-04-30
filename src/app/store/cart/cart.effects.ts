@@ -4,10 +4,11 @@ import * as CartActions from './cart.actions';
 import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { CartService } from '../../features/cart/services/cart/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class CartEffects {
-  constructor(private actions$: Actions, private cartService: CartService) {
+  constructor(private actions$: Actions, private cartService: CartService,private toastr:ToastrService) {
   }
 
   loadCart$ = createEffect(() =>
@@ -28,7 +29,12 @@ export class CartEffects {
       mergeMap(({ product, quantity }) =>
         this.cartService.addProductToCart(product, quantity).pipe(
           switchMap(() => this.cartService.getProductToCart()),
-          map(res => CartActions.addToCartSuccess({ cart: res })),
+          map(res => {
+            this.toastr.success('Product added to cart successfully!');
+            return CartActions.addToCartSuccess({ cart: res });
+          }
+           
+          ),
           catchError(err => of(CartActions.addToCartFailure({ error: err.message })))
         )
       )

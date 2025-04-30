@@ -21,7 +21,6 @@ export class CardComponent {
 
 
     addProduct(product: string, quantity: number) {
-      console.log('hi')
       this.store.dispatch(CartActions.addToCart({ product, quantity }));
     }
 

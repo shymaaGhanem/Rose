@@ -16,6 +16,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { responseMessageInterceptor } from './core/interceptors/message-response.interceptor';
 import { globalLoaderInterceptor } from './core/interceptors/loader.interceptor';
+import { provideServiceWorker } from '@angular/service-worker';
 
 
 export const appConfig: ApplicationConfig = {
@@ -33,6 +34,9 @@ export const appConfig: ApplicationConfig = {
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
    
     provideEffects([CartEffects]),
-    provideStore({ cart: cartReducer }),
+    provideStore({ cart: cartReducer }), provideServiceWorker('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            registrationStrategy: 'registerWhenStable:30000'
+          }),
 ]
 };

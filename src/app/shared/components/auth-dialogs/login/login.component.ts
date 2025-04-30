@@ -8,6 +8,7 @@ import { RegisterComponent } from '../register/register.component';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthApiService } from 'auth-api';
 import { NgIf } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthApiService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private toastr:ToastrService
   ) {
     this.loginForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
@@ -47,12 +49,15 @@ export class LoginComponent {
         this.isLoading = false;
         if (res.message === 'success') {
           localStorage.setItem('userToken', res.token);
+          this.toastr.success('login successfully!');
           window.location.reload();
         }
       },
       error: (err) => {
         this.isLoading = false;
-        this.errMsg = err.error?.message || 'Login failed';
+        console.log(err.error.error)
+        this.errMsg = err.error?.error || 'Login failed';
+        this.toastr.error('login failed!');
       }
     });
   }
