@@ -12,16 +12,23 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { cartReducer } from './store/cart/cart.reducer';
 import { CartEffects } from './store/cart/cart.effects';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
+import { responseMessageInterceptor } from './core/interceptors/message-response.interceptor';
+import { globalLoaderInterceptor } from './core/interceptors/loader.interceptor';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideAnimations(), 
+    provideToastr(), 
     provideAnimationsAsync(),
     providePrimeNG({
         theme: {
             preset: Aura
         }
     }),
-    provideHttpClient(withFetch(), withInterceptors([headerInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([headerInterceptor,globalLoaderInterceptor,responseMessageInterceptor])),
     provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay()),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
    

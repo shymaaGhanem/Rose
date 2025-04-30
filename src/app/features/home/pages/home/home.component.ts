@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { ProdutsComponent } from "../produts/produts.component";
 import { AboutComponent } from "../../../about/pages/about/about.component";
-import { HomeSliderComponent } from "../home-slider/home-slider.component";
+import { ProdutsComponent } from '../produts/produts.component';
 
 @Component({
   selector: 'app-home',
-  imports: [ProdutsComponent, AboutComponent, HomeSliderComponent],
+  imports: [ProdutsComponent,AboutComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+
 
 }

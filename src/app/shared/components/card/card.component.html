@@ -21,7 +21,7 @@
         </div>
         <p class="text-red-500 font-bold">{{productList.price | currency:'EUR'}} </p>
       </div>
-      <button class="bg-purple-600 p-3 rounded-full shadow-lg text-white">
+      <button (click)="addProduct(productList._id,productList.quantity)" class="bg-purple-600 p-3 rounded-full shadow-lg text-white">
         <i class="fas fa-shopping-bag"></i>
       </button>
     </div>
